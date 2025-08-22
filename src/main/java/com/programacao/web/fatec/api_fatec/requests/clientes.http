@@ -12,5 +12,27 @@ Content-Type: application/json
 
 {
   "id": 1,
-  "nome": "João da Silva"
+  "nome": "Zé da Silva"
+}
+
+### Listar Clientes
+
+GET http://localhost:8084/api/clientes/listarClientes
+
+
+### Remover cliente
+
+DELETE http://localhost:8084/api/clientes/2
+
+
+
+### Alterar cliente
+
+PUT http://localhost:8084/api/clientes
+
+{
+
+"id": 1;
+"nome": abraão;
+
 }
