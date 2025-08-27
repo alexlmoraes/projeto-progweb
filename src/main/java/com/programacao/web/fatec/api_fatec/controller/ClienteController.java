@@ -22,11 +22,12 @@ public class ClienteController {
     private final List<Cliente> listaDeCliente = new ArrayList<>();
 
     public ClienteController(){
-        listaDeCliente.add(new Cliente(1L, "Alex"));
+        listaDeCliente.add(new Cliente(1L, "Alex", null));
 
-        Cliente cliente2 = new Cliente();
+        Cliente cliente2 = new Cliente(null, null, null);
         cliente2.setId(2L);
         cliente2.setNome("Maria");
+        cliente2.setEndereco(null);
         listaDeCliente.add(cliente2);
     }
 
