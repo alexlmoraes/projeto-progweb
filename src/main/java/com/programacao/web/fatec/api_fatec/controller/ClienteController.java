@@ -3,6 +3,7 @@ package com.programacao.web.fatec.api_fatec.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.programacao.domain.cliente.ClienteRepository;
 import com.programacao.web.fatec.api_fatec.entities.Cliente;
+
+import jakarta.annotation.PostConstruct;
 
 
 @RestController
@@ -20,6 +24,9 @@ import com.programacao.web.fatec.api_fatec.entities.Cliente;
 public class ClienteController {
 
     private final List<Cliente> listaDeCliente = new ArrayList<>();
+
+    @Autowired
+    private ClienteRepository clienteRepository;
 
     public ClienteController(){
         listaDeCliente.add(new Cliente(1L, "Alex", null));
@@ -31,11 +38,16 @@ public class ClienteController {
         listaDeCliente.add(cliente2);
     }
 
-
-    @GetMapping("listarClientes")
+    @GetMapping("/listarClientes/")
     public List<Cliente> listarClientes(){
-        return listaDeCliente;
+
+        return clienteRepository.findAll();
     }
+
+    // @GetMapping("listarClientes")
+    //public List<Cliente> listarClientes(){
+    //    return listaDeCliente;
+    //}
 
 
     @GetMapping("/testeCliente1/")
@@ -87,7 +99,18 @@ public class ClienteController {
         }
     return "Não encontrado id:" +id;
 
-}
+    }
+
+    @PostConstruct
+    public void dadosIniciais(){
+        clienteRepository.save(new Cliente(null, "Alex", "rua xxx"));
+        clienteRepository.save(new Cliente(null, "Alex 1", "rua xxx1"));
+        clienteRepository.save(new Cliente(null, "Alex 2", "rua xxx2"));
+    }
+
+    
+
+        
 
 }
 
