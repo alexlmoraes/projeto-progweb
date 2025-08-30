@@ -19,6 +19,7 @@ import com.programacao.web.fatec.api_fatec.entities.Cliente;
 import jakarta.annotation.PostConstruct;
 
 
+
 @RestController
 @RequestMapping("/api/clientes")
 public class ClienteController {
@@ -106,6 +107,7 @@ public class ClienteController {
         clienteRepository.save(new Cliente(null, "Alex", "rua xxx"));
         clienteRepository.save(new Cliente(null, "Alex 1", "rua xxx1"));
         clienteRepository.save(new Cliente(null, "Alex 2", "rua xxx2"));
+        clienteRepository.save(new Cliente(null, "Alex 3", "rua xxx4"));
     }
 
     

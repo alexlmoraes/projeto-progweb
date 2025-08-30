@@ -11,8 +11,9 @@ POST http://localhost:8084/api/clientes
 Content-Type: application/json
 
 {
-  "id": 1,
+  "id": 5
   "nome": "Zé da Silva"
+  "endereco": "zzzz"
 }
 
 ### Listar Clientes
